@@ -139,9 +139,9 @@ $client->get('/some/url', ['max_retry_attempts' => 0]);
 
 ``` 
 
-### Setting status codes to retry
+### Setting status codes NOT to retry
 
-By default, this middleware will retry requests when the server responds with a `429` or `503` HTTP status code.  But, you can configure this:
+By default, this middleware will retry requests when the server does not respond with a `200` , `201` or `202` HTTP status code.  But, you can configure this:
 
 ```php
 
@@ -152,9 +152,6 @@ $response = $client->get('/some-path', [
 ```
 
 If the response includes a `RetryAfter` header, but its status code is not in the list, it will not be processed.
-
-**Note:** I haven't tested this, but I sincerely believe you will see some wonky behavior if you attempt to use
-this middleware with 3xx responses.  I don't suggest it.
 
 ### Setting default retry delay
 
