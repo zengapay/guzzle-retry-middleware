@@ -32,7 +32,7 @@ Features, at-a-glance:
 Via Composer
 
 ``` bash
-$ composer require caseyamcl/guzzle_retry_middleware
+$ composer require denismariano/guzzle-retry-middleware
 ```
 
 ## Usage
@@ -408,10 +408,6 @@ $ composer test
 ## Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security
-
-If you discover any security related issues, please email caseyamcl@gmail.com instead of using the issue tracker.
 
 ## Credits
 
