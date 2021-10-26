@@ -4,6 +4,7 @@
     "description": "Guzzle v6+ retry middleware that handles 429/503 status codes and connection timeouts",
     "keywords": [
         "caseyamcl",
+        "denismariano",
         "guzzle_retry_middleware",
         "guzzle",
         "middleware",
@@ -11,7 +12,7 @@
         "back-off",
         "retry-after"
     ],
-    "homepage": "https://github.com/caseyamcl/guzzle_retry_middleware",
+    "homepage": "https://github.com/denismariano/guzzle_retry_middleware",
     "license": "MIT",
     "authors": [
         {
@@ -19,6 +20,11 @@
             "email": "caseyamcl@gmail.com",
             "homepage": "https://caseymclaughlin.com",
             "role": "Developer"
+        },
+        {
+            "name": "Denis Ojok",
+            "email": "denis@zengapay.com",
+            "homepage": "https://developers.zengapay.com"
         }
     ],
     "require": {
@@ -48,11 +54,6 @@
         "check-style": "phpcs -p --standard=PSR12 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
         "fix-style": "phpcbf -p --standard=PSR12 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
         "phpstan": "vendor/bin/phpstan analyse -l 8 src tests"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "2.0-dev"
-        }
     },
     "config": {
         "sort-packages": true

@@ -42,7 +42,7 @@ use function is_callable;
  * the `RetryAfter` header
  *
  * @original-author Casey McLaughlin <caseyamcl@gmail.com>
- * @modified Denis Ojok <denis@zengapay.com>
+ * @modified by Denis Ojok <denis@zengapay.com>
  */
 class GuzzleRetryMiddleware
 {
