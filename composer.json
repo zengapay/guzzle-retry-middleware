@@ -2,6 +2,7 @@
     "name": "zengapay/guzzle_retry_middleware",
     "type": "library",
     "description": "Guzzle v6+ retry middleware that handles status codes other than 200, 201, 202 and connection timeouts",
+    "version": "1.1",
     "keywords": [
         "caseyamcl",
         "denismariano",
