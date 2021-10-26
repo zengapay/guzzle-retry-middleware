@@ -8,7 +8,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 This is a [Guzzle v6+](http://guzzlephp.org) middleware library that implements automatic
-retry of requests when HTTP servers respond with `503` or `429` status codes. It can also
+retry of requests when HTTP servers respond with status codes other than `200`, `201`, `202`. It can also
 be configured to retry requests that timeout.
  
 If a server supplies a [Retry-After header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Retry-After), 
@@ -19,7 +19,7 @@ based on rules in the HTTP Spec.  You can drop it right into your request stack 
 
 Features, at-a-glance:
 
-- Automatically retries HTTP requests when a server responds with a 429 or 503 status (or any HTTP status code; this is configurable)
+- Automatically retries HTTP requests when a server responds with a status other than `200`, `201`, `202` (or any HTTP status code; this is configurable)
 - Sets a retry delay based on the `Retry-After` HTTP header, if it is sent, or automatically backs off exponentially if
   no `Retry-After` header is sent (also configurable)
 - Optionally retries requests that time out (via the `connect_timeout` or `timeout` options)
@@ -54,7 +54,7 @@ $client = new Client(['handler' => $stack]);
 
 ```
 
-This is the default configuration.  If a HTTP server responds with a `429` or `503` status, this
+This is the default configuration.  If a HTTP server responds with a status other than `200`, `201`, `202`, this
 middleware with intercept the response and retry it up to 10 times before giving up and doing whatever
 behavior Guzzle would do by default (by default, throwing a `BadResponseException`).
 
@@ -72,7 +72,7 @@ The following options are available:
 | `max_retry_attempts`               | integer           | 10                 | Maximum number of retries per request
 | `max_allowable_timeout_secs`       | integer           | null               | If set, specifies a hard ceiling in seconds that the client can wait between requests 
 | `retry_only_if_retry_after_header` | boolean           | false              | Retry only if `RetryAfter` header sent
-| `retry_on_status`                  | array<int>        | 503, 429           | The response status codes that will trigger a retry
+| `retry_on_status_other_than`                  | array<int>        | 200, 201, 202           | Retry if server responds with a status other than these
 | `default_retry_multiplier`         | float or callable | 1.5                | Value to multiply the number of requests by if `RetryAfter` not supplied (see [below](#setting-default-retry-delay) for details)
 | `on_retry_callback`                | callable          | null               | Optional callback to call when a retry occurs
 | `retry_on_timeout`                 | boolean           | false              | Set to TRUE if you wish to retry requests that throw a ConnectException such as a timeout or 'connection refused'
@@ -146,7 +146,7 @@ By default, this middleware will retry requests when the server responds with a 
 ```php
 
 $response = $client->get('/some-path', [
-    'retry_on_status' => [429, 503, 500]
+    'retry_on_status_other_than' => [200, 201, 202]
 ]);
 
 ```
