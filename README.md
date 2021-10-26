@@ -32,7 +32,7 @@ Features, at-a-glance:
 Via Composer
 
 ``` bash
-$ composer require zengapay/guzzle-retry-middleware
+$ composer require zengapay/guzzle_retry_middleware
 ```
 
 ## Usage
