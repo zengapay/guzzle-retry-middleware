@@ -1,7 +1,7 @@
 {
-    "name": "caseyamcl/guzzle_retry_middleware",
+    "name": "zengapay/guzzle_retry_middleware",
     "type": "library",
-    "description": "Guzzle v6+ retry middleware that handles 429/503 status codes and connection timeouts",
+    "description": "Guzzle v6+ retry middleware that handles status codes other than 200, 201, 202 and connection timeouts",
     "keywords": [
         "caseyamcl",
         "denismariano",
@@ -12,7 +12,7 @@
         "back-off",
         "retry-after"
     ],
-    "homepage": "https://github.com/denismariano/guzzle_retry_middleware",
+    "homepage": "https://github.com/zengapay/guzzle_retry_middleware",
     "license": "MIT",
     "authors": [
         {
